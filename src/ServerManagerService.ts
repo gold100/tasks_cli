@@ -3,6 +3,7 @@ var config = require('../config.json');
 
 export class ServerManagerService{
     url: string;
+
     constructor() {
         this.url = 'http://localhost:3000/task/';
     }
