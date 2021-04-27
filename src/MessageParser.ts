@@ -6,7 +6,6 @@ import {GetTaskAction} from "./Actions/GetTaskAction";
 import {GetCompletedTaskAction} from "./Actions/GetCompletedTaskAction";
 import {TaskAction} from "./Actions/TaskAction";
 import {CompleteTaskAction} from "./Actions/CompleteTaskAction";
-import {CliTool} from "./CliTool";
 
 export class MessageParser{
 	map: Map<string, TaskAction> = new Map<string, TaskAction>();
@@ -26,9 +25,9 @@ export class MessageParser{
 		let parts = message.split(' ');
 		let actionString = parts[1];
 		let action = this.map.get(actionString);
-		let partialParts = parts.splice(0, 2);
+		parts.splice(0, 2);
 		if (action){
-			return await CliTool.getInstance().activateAction(action, partialParts);
+			return {action: action, params: parts};
 		}else {
 			console.error('No Action Found in todos')
 			return null;

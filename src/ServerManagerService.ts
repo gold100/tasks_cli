@@ -1,4 +1,5 @@
 import axios from "axios";
+var config = require('../config.json');
 
 export class ServerManagerService{
     url: string;
@@ -7,11 +8,11 @@ export class ServerManagerService{
     }
 
     async postRequest(partialUrl: string, body: any){
-        return await axios.post(this.url + partialUrl , body);
+        return await axios.post(this.url + partialUrl , {body: body});
     }
 
     async delete(partialUrl: string, id: any){
-        return await axios.post(this.url + partialUrl + `/${id}`);
+        return await axios.delete(this.url + partialUrl, {data: {body: id}});
     }
 
     async get(partialUrl: string){

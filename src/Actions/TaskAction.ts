@@ -4,17 +4,10 @@ import {ValidationObject} from "../Entities/ValidationObject";
 export abstract class TaskAction {
     abstract childLogic(params?: string[]): any;
     isGetAction: boolean;
-    errorStatus: TaskErrorMessage;
     validationJson: ValidationObject;
     result: any;
     taskName: string;
     abstract getErrorText(taskError: TaskErrorMessage);
-
-    updateErrror(){
-        if (!this.validationJson.isValid){
-            this.errorStatus = this.validationJson.errorMessage;
-        }
-    }
 
     async doLogic(params?: string[]){
         this.validationJson = new ValidationObject(true, null);
@@ -23,7 +16,5 @@ export abstract class TaskAction {
         }else{
             await this.childLogic();
         }
-
-        this.updateErrror();
     }
 }

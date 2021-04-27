@@ -8,7 +8,8 @@ export class DeleteTaskAction extends TaskAction{
         this.isGetAction = false;
     }
     async childLogic(params: string[]) {
-        let result = await new ServerManagerService().delete('', params[0]);
+        this.taskName = params[0];
+        let result = await new ServerManagerService().postRequest('deleteTask', this.taskName);
         this.validationJson = result.data;
     }
 

@@ -13,7 +13,7 @@ export class UndoTaskAction extends TaskAction{
     async childLogic(params: string[]) {
         this.taskName = params[0];
         let result =  await new ServerManagerService().postRequest('changeStatus',
-            new ChangeStausDTO(params[0], TaskStatus.Open));
+            new ChangeStausDTO(this.taskName, TaskStatus.Open));
         this.validationJson = result.data;
     }
 
@@ -21,7 +21,7 @@ export class UndoTaskAction extends TaskAction{
         switch (taskError){
             case TaskErrorMessage.TASK_NOT_EXISTS:
                 return `The Task ${this.taskName} does not exist`;
-            case TaskErrorMessage.UPDATE_COMPLETED_TASK:
+            case TaskErrorMessage.UNDO_INCOMPLETE:
                 return `The Task ${this.taskName} is already Open and cannot be undo`;
         }
     }
