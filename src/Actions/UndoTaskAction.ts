@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {ServerManagerService} from "../ServerManagerService";
+import {postRequest} from "../ServerManagerService";
 import {ChangeStausDTO} from "../Entities/ChangeStausDTO";
 import {TaskStatus} from "../Entities/TaskStatus";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
@@ -12,7 +12,7 @@ export class UndoTaskAction extends TaskAction{
 
     async childLogic(params: string[]) {
         this.taskName = params[0];
-        let result =  await new ServerManagerService().postRequest('changeStatus',
+        let result =  await postRequest('changeStatus',
             new ChangeStausDTO(this.taskName, TaskStatus.Open));
         this.validationJson = result.data;
     }

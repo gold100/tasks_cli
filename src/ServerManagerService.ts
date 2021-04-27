@@ -1,22 +1,14 @@
 import axios from "axios";
 var config = require('../config.json');
+const url = `http://${config.server_ip}:${config.server_port}/task/`;
 
-export class ServerManagerService{
-    url: string;
+export async function postRequest(partialUrl: string, body: any){
+    return await axios.post(url + partialUrl , {body: body});
+}
 
-    constructor() {
-        this.url = 'http://localhost:3000/task/';
-    }
-
-    async postRequest(partialUrl: string, body: any){
-        return await axios.post(this.url + partialUrl , {body: body});
-    }
-
-    async delete(partialUrl: string, id: any){
-        return await axios.delete(this.url + partialUrl, {data: {body: id}});
-    }
-
-    async get(partialUrl: string){
-        return await axios.get(this.url + partialUrl);
-    }
+export async function deleteRequest(partialUrl: string, id: any){
+    return await axios.delete(url + partialUrl, {data: {body: id}});
+}
+export async function getRequest(partialUrl: string){
+    return await axios.get(url + partialUrl);
 }

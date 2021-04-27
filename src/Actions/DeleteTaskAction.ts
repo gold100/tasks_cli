@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {ServerManagerService} from "../ServerManagerService";
+import {postRequest} from "../ServerManagerService";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
 
 export class DeleteTaskAction extends TaskAction{
@@ -9,7 +9,7 @@ export class DeleteTaskAction extends TaskAction{
     }
     async childLogic(params: string[]) {
         this.taskName = params[0];
-        let result = await new ServerManagerService().postRequest('deleteTask', this.taskName);
+        let result = await postRequest('deleteTask', this.taskName);
         this.validationJson = result.data;
     }
 

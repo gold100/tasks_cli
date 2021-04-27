@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {ServerManagerService} from "../ServerManagerService";
+import {postRequest} from "../ServerManagerService";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
 
 export class AddTaskAction extends TaskAction{
@@ -12,7 +12,7 @@ export class AddTaskAction extends TaskAction{
 
     async childLogic(params: string[]) {
         this.taskName = params[0];
-        let result = await new ServerManagerService().postRequest('create', this.taskName);
+        let result = await postRequest('create', this.taskName);
         this.validationJson = result.data;
     }
 

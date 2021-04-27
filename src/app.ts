@@ -1,5 +1,5 @@
 import {MessageParser} from "./MessageParser";
-import {CliTool} from "./CliTool";
+import {activateAction} from "./CliTool";
 
 const chalk = require('chalk');
 const clear = require('clear');
@@ -21,7 +21,7 @@ rl.on('line', async function(line: string) {
     if (line.includes('todos')){
         let action = await MessageParser.getInstance().getAction(line);
         if (action) {
-            await CliTool.getInstance().activateAction(action.action, action.params);
+            await activateAction(action.action, action.params);
         }
     }else{
         console.error('Say what? I might have heard `' + line.trim() + '`');
