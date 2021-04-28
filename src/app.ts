@@ -1,5 +1,5 @@
 import {MessageParser} from "./MessageParser";
-import {activateAction} from "./CliTool";
+import {activateAction} from "./ActionsHelper";
 
 const chalk = require('chalk');
 const clear = require('clear');
