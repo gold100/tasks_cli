@@ -1,6 +1,5 @@
 import {TaskAction} from "../Actions/TaskAction";
 
-
 export async function activateAction(action: TaskAction, partialParts: string[]) {
 	await action.doLogic(partialParts);
 	if (!action.validationJson.isValid){

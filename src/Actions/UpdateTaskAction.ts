@@ -1,7 +1,7 @@
 import {TaskAction} from "./TaskAction";
 import {ChangeMetaDataDTO} from "../Entities/ChangeMetaDataDTO";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
-import {postRequest} from "../Services/ServerManagerService";
+import {putRequest} from "../Services/ServerManagerService";
 
 export class UpdateTaskAction extends TaskAction{
     taskName: string;
@@ -13,7 +13,7 @@ export class UpdateTaskAction extends TaskAction{
 
     async childLogic(params: string[]) {
         this.taskName = params[0];
-        let result = await postRequest('updateMetadata',
+        let result = await putRequest('updateMetadata',
             new ChangeMetaDataDTO(this.taskName, params[1]));
         this.validationJson = result.data;
     }

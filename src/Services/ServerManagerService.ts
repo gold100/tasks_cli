@@ -6,6 +6,10 @@ export async function postRequest(partialUrl: string, body: any){
     return await axios.post(url + partialUrl , {body: body});
 }
 
+export async function putRequest(partialUrl: string, body: any){
+    return await axios.put(url + partialUrl , {body: body});
+}
+
 export async function deleteRequest(partialUrl: string, id: any){
     return await axios.delete(url + partialUrl, {data: {body: id}});
 }

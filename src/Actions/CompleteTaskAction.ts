@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {postRequest} from "../Services/ServerManagerService";
+import {putRequest} from "../Services/ServerManagerService";
 import {ChangeStausDTO} from "../Entities/ChangeStausDTO";
 import {TaskStatus} from "../Entities/TaskStatus";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
@@ -12,7 +12,7 @@ export class CompleteTaskAction extends TaskAction{
 
     async childLogic(params: string[]) {
         this.taskName = params[0];
-        let result = await postRequest('changeStatus',
+        let result = await putRequest('changeStatus',
             new ChangeStausDTO(params[0], TaskStatus.Completed));
         this.validationJson = result.data;
     }
