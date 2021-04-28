@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {postRequest} from "../ServerManagerService";
+import {postRequest} from "../Services/ServerManagerService";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
 
 export class AddTaskAction extends TaskAction{

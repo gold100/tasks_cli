@@ -1,7 +1,7 @@
 import {TaskAction} from "./TaskAction";
 import {ChangeMetaDataDTO} from "../Entities/ChangeMetaDataDTO";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
-import {postRequest} from "../ServerManagerService";
+import {postRequest} from "../Services/ServerManagerService";
 
 export class UpdateTaskAction extends TaskAction{
     taskName: string;

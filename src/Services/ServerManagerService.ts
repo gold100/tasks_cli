@@ -1,5 +1,5 @@
 import axios from "axios";
-var config = require('../config.json');
+var config = require('../../config.json');
 const url = `http://${config.server_ip}:${config.server_port}/task/`;
 
 export async function postRequest(partialUrl: string, body: any){

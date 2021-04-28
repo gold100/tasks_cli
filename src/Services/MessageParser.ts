@@ -1,11 +1,11 @@
-import {AddTaskAction} from "./Actions/AddTaskAction";
-import {UpdateTaskAction} from "./Actions/UpdateTaskAction";
-import {UndoTaskAction} from "./Actions/UndoTaskAction";
-import {DeleteTaskAction} from "./Actions/DeleteTaskAction";
-import {GetTaskAction} from "./Actions/GetTaskAction";
-import {GetCompletedTaskAction} from "./Actions/GetCompletedTaskAction";
-import {TaskAction} from "./Actions/TaskAction";
-import {CompleteTaskAction} from "./Actions/CompleteTaskAction";
+import {AddTaskAction} from "../Actions/AddTaskAction";
+import {UpdateTaskAction} from "../Actions/UpdateTaskAction";
+import {UndoTaskAction} from "../Actions/UndoTaskAction";
+import {DeleteTaskAction} from "../Actions/DeleteTaskAction";
+import {GetTaskAction} from "../Actions/GetTaskAction";
+import {GetCompletedTaskAction} from "../Actions/GetCompletedTaskAction";
+import {TaskAction} from "../Actions/TaskAction";
+import {CompleteTaskAction} from "../Actions/CompleteTaskAction";
 
 export class MessageParser{
 	map: Map<string, TaskAction> = new Map<string, TaskAction>();

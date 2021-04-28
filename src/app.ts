@@ -1,12 +1,6 @@
-import {MessageParser} from "./MessageParser";
-import {activateAction} from "./ActionsHelper";
-
+import {CLITool} from "./Services/CLITool";
 const chalk = require('chalk');
-const clear = require('clear');
 const figlet = require('figlet');
-const readline = require('readline'),
-    rl = readline.createInterface(process.stdin, process.stdout);
-clear();
 
 console.log(
     chalk.blueBright(
@@ -14,19 +8,6 @@ console.log(
     )
 );
 
-rl.setPrompt('> ');
-rl.prompt();
+new CLITool().startListening();
 
-rl.on('line', async function(line: string) {
-    if (line.includes('todos')){
-        let action = await MessageParser.getInstance().getAction(line);
-        if (action) {
-            await activateAction(action.action, action.params);
-        }
-    }else{
-        console.error('Unknown command: `' + line.trim() + '`');
-    }
-    rl.prompt();
-}).on('close', function() {
-    process.exit(0);
-});
+

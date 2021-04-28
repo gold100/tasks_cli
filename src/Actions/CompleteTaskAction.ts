@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {postRequest} from "../ServerManagerService";
+import {postRequest} from "../Services/ServerManagerService";
 import {ChangeStausDTO} from "../Entities/ChangeStausDTO";
 import {TaskStatus} from "../Entities/TaskStatus";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";

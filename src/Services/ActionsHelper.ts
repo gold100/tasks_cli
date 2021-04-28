@@ -1,4 +1,4 @@
-import {TaskAction} from "./Actions/TaskAction";
+import {TaskAction} from "../Actions/TaskAction";
 
 
 export async function activateAction(action: TaskAction, partialParts: string[]) {

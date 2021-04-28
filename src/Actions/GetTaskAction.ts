@@ -1,5 +1,5 @@
 import {TaskAction} from "./TaskAction";
-import {getRequest} from "../ServerManagerService";
+import {getRequest} from "../Services/ServerManagerService";
 import {TaskStatus} from "../Entities/TaskStatus";
 import {TaskErrorMessage} from "../Entities/TaskErrorMessage";
 import {ValidationObject} from "../Entities/ValidationObject";
