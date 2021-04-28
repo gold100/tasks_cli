@@ -1,7 +1,8 @@
 Task CLI Client
 
 This program runs a command line interface for maniuplating tasks on a remote server.
-The server details can be changes in a configuration file called config.json that exists on the root.
+
+The server details can be changed in a configuration file called config.json that exists on the root of the project.
 
 To run the client please run:
 
