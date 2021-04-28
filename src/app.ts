@@ -24,7 +24,7 @@ rl.on('line', async function(line: string) {
             await activateAction(action.action, action.params);
         }
     }else{
-        console.error('Say what? I might have heard `' + line.trim() + '`');
+        console.error('Unknown command: `' + line.trim() + '`');
     }
     rl.prompt();
 }).on('close', function() {
